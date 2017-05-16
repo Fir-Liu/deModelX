@@ -812,7 +812,9 @@ class DeFixedInt(object):
 
   def bit(self):
     '''Return number as bit string'''
-    return np.binary_repr(self.value,self.fractWidth + self.intWidth)
+    s = np.binary_repr(self.value,self.fractWidth + self.intWidth)
+    s1 = s[0:self.intWidth]+'.'+s[self.intWidth:]
+    return s1
 
 
 
@@ -821,7 +823,7 @@ class DeFixedInt(object):
 # main()
 # 
 if __name__ == '__main__':
-    a = DeFixedInt(8, 3, -0.5)
+    a = DeFixedInt(1, 4, -0.75)
     print(a.bit())
 #  a = DeFixedInt()
 #  a.value = 1
